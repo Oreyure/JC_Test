@@ -39,14 +39,10 @@ new Vue({
 		
 		// 设置首题，切换到答题页面
 		toAnswerPage:function(){
-			if(isLogin()){
-				if(questions){
-					this.nowQuestion = questions[this.questionPoint++]
-					console.log(this.nowQuestion)
-					this.changePage()
-				}
-			}else{
-				doLogin()
+			if(questions){
+				this.nowQuestion = questions[this.questionPoint++]
+				console.log(this.nowQuestion)
+				this.changePage()
 			}
 		},
 		
