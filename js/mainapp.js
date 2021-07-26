@@ -3,9 +3,16 @@ const app = cloudbase.init({
 	env: "xiaomi-answer-2goch6zbbc11614e"
 });
 
-app.auth().getLoginState().then(() => {
-	console.log("登录云开发成功！");
-});
+var auth = app.auth();
+
+async function login(){
+  await auth.signInAnonymously();
+  // 匿名登录成功检测登录状态isAnonymous字段为true
+  const loginState = await auth.getLoginState();
+  console.log(loginState.isAnonymous); // true
+}
+
+login();
 
 // 加载题目库
 let questions = []
