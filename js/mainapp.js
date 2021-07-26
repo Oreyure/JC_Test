@@ -14,6 +14,7 @@ app.callFunction({
 })
 .then((res) => {
 	questions = res.result.questions
+	console.log(questions)
 });
 
 new Vue({
@@ -39,6 +40,7 @@ new Vue({
 		
 		// 设置首题，切换到答题页面
 		toAnswerPage:function(){
+			console.log(questions)
 			if(questions){
 				this.nowQuestion = questions[this.questionPoint++]
 				console.log(this.nowQuestion)
