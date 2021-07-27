@@ -1,27 +1,15 @@
-// 使用腾讯云开发的数据库
-const app = cloudbase.init({
-	env: "xiaomi-answer-2goch6zbbc11614e"
-});
-
-var auth = app.auth();
-
-async function login(){
-  await auth.signInAnonymously();
-  // 匿名登录成功检测登录状态isAnonymous字段为true
-  const loginState = await auth.getLoginState();
-  console.log(loginState.isAnonymous); // true
-}
-
-login();
-
-// 加载题目库
-let questions = []
-app.callFunction({
-	name: "XMA-GetQuestions"
-})
-.then((res) => {
-	questions = res.result.questions
-	console.log(questions)
+var questions = []
+$.ajax({
+	url: 'https://xiaomi-answer-2goch6zbbc11614e-1301214601.ap-shanghai.app.tcloudbase.com/GetQuestions',
+	type: 'get',
+	dataType: 'json',
+	success: function (data) {
+		console.log(data)
+		questions = data.questions
+	},
+	error: function(xhr, errorType, error) {
+		console.log('error')
+	}
 });
 
 new Vue({
@@ -47,8 +35,8 @@ new Vue({
 		
 		// 设置首题，切换到答题页面
 		toAnswerPage:function(){
-			console.log(questions)
 			if(questions){
+				console.log(questions)
 				this.nowQuestion = questions[this.questionPoint++]
 				console.log(this.nowQuestion)
 				this.changePage()
