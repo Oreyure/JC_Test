@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>小米抽奖测试 Demo</title>
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		
+		
+		<!-- 引入并初始化腾讯云开发SDK -->
+		<script src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/1.6.0/cloudbase.full.js"></script>
+		<script src="//s1.mi.com/m/source/scripts/wbs/vue.min.js"></script>
+		<script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+		<script src="//s1.mi.com/m/source/scripts/wbs/fetch-jsonp.min.js"></script>
+		<script src="//s1.mi.com/m/source/scripts/wbs/axios.min.js"></script>
+		<script src="//s1.mi.com/m/source/scripts/wbs/md5.min.js"></script>
+	</head>
+	
+	<body>
+		<div id="mainapp">
+			
+			<!-- 首页 -->
+			<div v-if="page%4==0" class="home">
+				<div v-on:click.once="toAnswerPage()">开始答题</div>
+			</div>
+			
+			<!-- 答题页 -->
+			<div v-if="page%4==1" class="answer-area">
+				<div class="question">
+					<div></div>
+					<p>{{nowQuestion.question}}</p>
+				</div>
+				<div 
+					class="picker" 
+					v-for="(option,index) in nowQuestion.options" 
+					v-on:click="pickOption(index)">
+					<div>A</div>
+					<p>{{option}}</p>
+				</div>
+			</div>
+			
+			<!-- 结算页 -->
+			<div v-if="page%4==2" class="endpage">
+				<p style="font-size: 50pt;position: absolute;top:0;">分享界面：共做对了{{score}}题，长按图片可保存分享</p>
+				<img src="./img/win.jpg" />
+				<div @click.once="doDraw()">领取奖励</div>
+			</div>
+			
+			<!-- 奖励领取页 -->
+			<div v-if="showPop" class="pop">
+				<div>奖励信息</div>
+				<p @click="hideDrawPanel()">领取奖励</p>
+				<p @click="hideDrawPanel()">分享好友</p>
+			</div>
+			<div v-if="showPop" class="mask"></div>
+		</div>
+		
+		<script src="./js/sdk.js?202107191410"></script>
+		<script src="./js/mainapp.js"></script>
+	</body>
+</html>

@@ -1,0 +1,198 @@
+*{
+	margin:0;
+	padding: 0;
+}
+
+/* 首页 home */
+.home{
+	width: 100%;
+	height:100%;
+}
+.home div{
+	width:70%;
+	height:80pt;
+	
+	position: absolute;
+	bottom:100pt;
+	
+	margin:20pt 15% 20pt 15%;
+	border:2pt solid #3181ff;
+	border-radius: 40pt;
+	
+	line-height: 80pt;
+	font-size:50pt;
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: 5pt;
+	color:#3181ff;
+}
+.home div:active{
+	background: #befffb;
+}
+
+
+/* 答题区域 answer-area */
+.answer-area{
+	width:100%;
+	
+	position:absolute;
+	bottom:100pt;
+}
+
+/* 问题面板 question */
+.question{
+	width:80%;
+	
+	position: relative;
+	
+	margin:20pt 10% 40pt 10%;
+	
+	border:2pt solid #3181ff;
+	border-radius: 20pt;
+}
+.question p{
+	margin:20pt 40pt 20pt 40pt;
+	
+	font-size:40pt;
+	font-weight: 500;
+	text-align: center;
+	color:#3181ff;
+}
+.question div{
+	width:150pt;
+	height:80pt;
+	
+	position: absolute;
+	top:-60pt;
+	left:-50pt;
+	
+	border-radius: 20pt;
+	
+	background:#3181ff;
+}
+
+/* 选项 picker */
+.picker{
+	width:70%;
+	height:80pt;
+	
+	position: relative;
+	
+	margin:20pt 15% 20pt 15%;
+	border:2pt solid #3181ff;
+	border-radius: 40pt;
+}
+.picker:active{
+	background: #befffb;
+}
+.picker p{
+	width:100%;
+	height:80pt;
+	
+	position: absolute;
+	top:0;
+	left:0;
+	
+	line-height: 80pt;
+	font-size:40pt;
+	font-weight: 500;
+	text-align: center;
+	color:#3181ff;
+	
+	overflow: hidden;
+}
+.picker div{
+	width:80pt;
+	height:80pt;
+	
+	position: absolute;
+	top:0;
+	left:0;
+	
+	border-radius: 40pt;
+	
+	line-height: 80pt;
+	font-size:50pt;
+	font-weight: 900;
+	text-align: center;
+	color:#FFFFFF;
+	
+	
+	background:#3181ff;
+}
+
+/* 结束页 endpage */
+.endpage{
+}
+.endpage img{
+	position:absolute;
+	top:10%;
+	width:100%;
+}
+.endpage div{
+	width:70%;
+	height:80pt;
+	
+	position: absolute;
+	bottom:100pt;
+	
+	margin:20pt 15% 20pt 15%;
+	border:2pt solid #3181ff;
+	border-radius: 40pt;
+	
+	line-height: 80pt;
+	font-size:50pt;
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: 5pt;
+	color:#3181ff;
+}
+
+/* 遮罩弹窗 */
+.pop {
+	z-index: 99;
+	display: block;
+	position: absolute;
+	margin-top:25%;
+	margin-left:10%;
+	width:80%;
+	height: 50%;
+}
+.pop div{
+	background-color: #3181FF;
+	height:80%;
+	font-size:80px;
+}
+.pop p{
+	width:40%;
+	margin:10px;
+	background-color: #3181FF;
+	text-align: center;
+	font-size:50px;
+	float: left;
+}
+.pop p~p{
+	float:right
+}
+
+.mask {
+	height: 100%;
+	width: 100%;
+	display: block;
+	background-color: #000000;
+	position: absolute;
+	opacity: 0.5;
+	animation: showMask 0.5s;
+	-webkit-animation: showMask 0.5s;
+	z-index: 1;
+}
+
+@keyframes showMask{
+    from {opacity: 0;}
+    to {opacity: 0.5;}
+}
+ 
+@-webkit-keyframes showMask{
+    from {opacity: 0;}
+    to {opacity: 0.5;}
+}
