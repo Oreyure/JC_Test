@@ -7,7 +7,7 @@ new Vue({
 	el: '#mainapp',
 	data: {
 		xmid:"",
-		page:2,
+		page:0,
 		
 		questionPoint:0,
 		questions:[],
